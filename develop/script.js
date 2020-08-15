@@ -5,12 +5,13 @@ var button2 = document.getElementById("opt2");
 var button3 = document.getElementById("opt3");
 var button4 = document.getElementById("opt4");
 var i = 0;
+var score = 0;
 
 
-function startTimer(){
-    console.log(window);
-    // added empty function to start the timer, i don't know how to do it yet
-}
+// function startTimer(){
+//     console.log(window);
+//     // added empty function to start the timer, i don't know how to do it yet
+// }
 
 function showQuestions(){
     document.getElementById("quizQuestions").style.display = "block";
@@ -22,7 +23,6 @@ function listQuestions(list){
     button2.innerHTML = list.choice2;
     button3.innerHTML = list.choice3;
     button4.innerHTML = list.choice4;
-    i++;
 }
 
 function correctAnswer(){
@@ -30,6 +30,7 @@ function correctAnswer(){
     setTimeout(function(){
         document.getElementById("rightAnswer").style.display = "none";
     }, 1000);
+    score = score + 5;
 }
 
 function incorrectAnswer(){
@@ -55,48 +56,60 @@ startButton.addEventListener("click", function(){
     startTimer();
 })
 
-// document.getElementById("buttonWrapper").addEventListener("click", function(){
-//     var i = 0
-//     listQuestions(questions[i])
-//     i++;
-// })
 
 button1.addEventListener("click", function(){
-    if (button1.innerHTML === questions[i-1].rightAnswer){
+    if (button1.innerHTML === questions[i].rightAnswer){
         correctAnswer();
     }
     else {
         incorrectAnswer();
+    }
+    i++;
+    if (i==10){
+        document.getElementById("quizQuestions").style.display = "none";
     }
     listQuestions(questions[i]);
 })
 
 button2.addEventListener("click", function(){
-    if (button2.innerHTML === questions[i-1].rightAnswer){
+    if (button2.innerHTML === questions[i].rightAnswer){
         correctAnswer();
     }
     else {
         incorrectAnswer();
+    }
+    i++;
+    if (i==10){
+        document.getElementById("quizQuestions").style.display = "none";
     }
     listQuestions(questions[i]);
 })
 
 button3.addEventListener("click", function(){
-    if (button3.innerHTML == questions[i-1].rightAnswer){
+    if (button3.innerHTML == questions[i].rightAnswer){
         correctAnswer();
     }
     else {
         incorrectAnswer();
+    }
+    i++;
+    if (i==10){
+        document.getElementById("quizQuestions").style.display = "none";
     }
     listQuestions(questions[i]);
 })
 
 button4.addEventListener("click", function(){
-    if (button4.innerHTML === questions[i-1].rightAnswer){
+
+    if (button4.innerHTML === questions[i].rightAnswer){
         correctAnswer();
     }
     else {
         incorrectAnswer();
+    }
+    i++;
+    if (i==10){
+        document.getElementById("quizQuestions").style.display = "none";
     }
     listQuestions(questions[i]);
 })
