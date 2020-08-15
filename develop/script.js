@@ -65,6 +65,10 @@ function yourScore(){
     console.log(endScore);
 }
 
+function showHighScores(){
+    
+}
+
 
 button1.addEventListener("click", function(){
     if (button1.innerHTML === questions[i].rightAnswer){
@@ -138,6 +142,8 @@ submitBtn.addEventListener("click", function(event){
         sessionStorage.setItem(initialsInput, scoreInput)
     }
     saveScores(userInitials, score);
+    document.getElementById("submitScores").style.display = "none";
+    showHighScores();
 })
 
 
