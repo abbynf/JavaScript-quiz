@@ -4,7 +4,7 @@ var button1 = document.getElementById("opt1");
 var button2 = document.getElementById("opt2");
 var button3 = document.getElementById("opt3");
 var button4 = document.getElementById("opt4");
-var i = 1;
+var i = 0;
 
 
 function startTimer(){
@@ -25,6 +25,20 @@ function listQuestions(list){
     i++;
 }
 
+function correctAnswer(){
+    document.getElementById("rightAnswer").style.display = "block";
+    setTimeout(function(){
+        document.getElementById("rightAnswer").style.display = "none";
+    }, 1000);
+}
+
+function incorrectAnswer(){
+    document.getElementById("wrongAnswer").style.display = "block";
+    setTimeout(function(){
+        document.getElementById("wrongAnswer").style.display = "none";
+    }, 1000);
+}
+
 startButton.addEventListener("click", function(){
     // This function hides the welcome/starting screen
     document.getElementById("startingScreen").style.display = "none";
@@ -35,7 +49,7 @@ startButton.addEventListener("click", function(){
     //Starts function that fills in the quiz questions div
     showQuestions();
 
-    listQuestions(questions[0]);
+    listQuestions(questions[i]);
 
     // Starts the timer in the upper right hand corner
     startTimer();
@@ -48,5 +62,41 @@ startButton.addEventListener("click", function(){
 // })
 
 button1.addEventListener("click", function(){
+    if (button1.innerHTML === questions[i-1].rightAnswer){
+        correctAnswer();
+    }
+    else {
+        incorrectAnswer();
+    }
+    listQuestions(questions[i]);
+})
+
+button2.addEventListener("click", function(){
+    if (button2.innerHTML === questions[i-1].rightAnswer){
+        correctAnswer();
+    }
+    else {
+        incorrectAnswer();
+    }
+    listQuestions(questions[i]);
+})
+
+button3.addEventListener("click", function(){
+    if (button3.innerHTML == questions[i-1].rightAnswer){
+        correctAnswer();
+    }
+    else {
+        incorrectAnswer();
+    }
+    listQuestions(questions[i]);
+})
+
+button4.addEventListener("click", function(){
+    if (button4.innerHTML === questions[i-1].rightAnswer){
+        correctAnswer();
+    }
+    else {
+        incorrectAnswer();
+    }
     listQuestions(questions[i]);
 })
