@@ -58,6 +58,9 @@ startButton.addEventListener("click", function(){
 
 function yourScore(){
     document.getElementById("submitScores").style.display = "block";
+    var endScore = "Your score is " + score;
+    document.getElementById("scoreDisplay").innerHTML = endScore
+    console.log(endScore);
 }
 
 
@@ -72,6 +75,7 @@ button1.addEventListener("click", function(){
     if (i==10){
         document.getElementById("quizQuestions").style.display = "none";
         yourScore();
+        return;
     }
     listQuestions(questions[i]);
 })
@@ -86,6 +90,8 @@ button2.addEventListener("click", function(){
     i++;
     if (i==10){
         document.getElementById("quizQuestions").style.display = "none";
+        yourScore();
+        return;
     }
     listQuestions(questions[i]);
 })
@@ -100,6 +106,8 @@ button3.addEventListener("click", function(){
     i++;
     if (i==10){
         document.getElementById("quizQuestions").style.display = "none";
+        yourScore();
+        return;
     }
     listQuestions(questions[i]);
 })
@@ -115,6 +123,8 @@ button4.addEventListener("click", function(){
     i++;
     if (i==10){
         document.getElementById("quizQuestions").style.display = "none";
+        yourScore();
+        return;
     }
     listQuestions(questions[i]);
 })
