@@ -4,10 +4,11 @@ var button1 = document.getElementById("opt1");
 var button2 = document.getElementById("opt2");
 var button3 = document.getElementById("opt3");
 var button4 = document.getElementById("opt4");
-var i = 0;
+var q = 0;
 var score = 0;
 var submitBtn = document.getElementById("submit");
 var userInitials;
+var highScores = [];
 
 
 // function startTimer(){
@@ -52,7 +53,7 @@ startButton.addEventListener("click", function(){
     //Starts function that fills in the quiz questions div
     showQuestions();
 
-    listQuestions(questions[i]);
+    listQuestions(questions[q]);
 
     // Starts the timer in the upper right hand corner
     // startTimer();
@@ -66,82 +67,93 @@ function yourScore(){
 }
 
 function showHighScores(){
-    
+    document.getElementById("highScoresDiv").style.display = "block";
+    for (i = 0; i < sessionStorage.length; i++){
+        var storedScore = sessionStorage.getItem(sessionStorage.key(i))
+        console.log(storedScore);
+        var listScore = document.createElement("p");
+        var listScoreContent = document.createTextNode(storedScore);
+        listScore.appendChild(listScoreContent)
+        document.getElementById("scoreListDiv").appendChild(listScore);
+    }
+
 }
 
 
 button1.addEventListener("click", function(){
-    if (button1.innerHTML === questions[i].rightAnswer){
+    if (button1.innerHTML === questions[q].rightAnswer){
         correctAnswer();
     }
     else {
         incorrectAnswer();
     }
-    i++;
-    if (i==10){
+    q++;
+    if (q==10){
         document.getElementById("quizQuestions").style.display = "none";
         yourScore();
         return;
     }
-    listQuestions(questions[i]);
+    listQuestions(questions[q]);
 })
 
 button2.addEventListener("click", function(){
-    if (button2.innerHTML === questions[i].rightAnswer){
+    if (button2.innerHTML === questions[q].rightAnswer){
         correctAnswer();
     }
     else {
         incorrectAnswer();
     }
-    i++;
-    if (i==10){
+    q++;
+    if (q==10){
         document.getElementById("quizQuestions").style.display = "none";
         yourScore();
         return;
     }
-    listQuestions(questions[i]);
+    listQuestions(questions[q]);
 })
 
 button3.addEventListener("click", function(){
-    if (button3.innerHTML == questions[i].rightAnswer){
+    if (button3.innerHTML == questions[q].rightAnswer){
         correctAnswer();
     }
     else {
         incorrectAnswer();
     }
-    i++;
-    if (i==10){
+    q++;
+    if (q==10){
         document.getElementById("quizQuestions").style.display = "none";
         yourScore();
         return;
     }
-    listQuestions(questions[i]);
+    listQuestions(questions[q]);
 })
 
 button4.addEventListener("click", function(){
 
-    if (button4.innerHTML === questions[i].rightAnswer){
+    if (button4.innerHTML === questions[q].rightAnswer){
         correctAnswer();
     }
     else {
         incorrectAnswer();
     }
-    i++;
-    if (i==10){
+    q++;
+    if (q==10){
         document.getElementById("quizQuestions").style.display = "none";
         yourScore();
         return;
     }
-    listQuestions(questions[i]);
+    listQuestions(questions[q]);
 })
 
 submitBtn.addEventListener("click", function(event){
     event.preventDefault();
     userInitials = document.getElementById("intials").value;
-    function saveScores(initialsInput, scoreInput){
-        sessionStorage.setItem(initialsInput, scoreInput)
+    newSave = userInitials + "  --  " + score;
+    function saveScores(newKey, newSaveInput){
+        sessionStorage.setItem(newKey, newSaveInput)
     }
-    saveScores(userInitials, score);
+    var newKey = 1;
+    saveScores(newKey, newSave);
     document.getElementById("submitScores").style.display = "none";
     showHighScores();
 })
