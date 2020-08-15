@@ -50,6 +50,8 @@ startButton.addEventListener("click", function(){
     //Starts the display of the quiz questions
     document.getElementById("quizQuestions").style.display = "block";
 
+    q = 0;
+
     //Starts function that fills in the quiz questions div
     showQuestions();
 
@@ -68,14 +70,13 @@ function yourScore(){
 
 function showHighScores(){
     document.getElementById("highScoresDiv").style.display = "block";
-    for (i = 0; i < sessionStorage.length; i++){
-        var storedScore = sessionStorage.getItem(sessionStorage.key(i))
+        var storedScore = sessionStorage.getItem(sessionStorage.key(sessionStorage.length - 1))
         console.log(storedScore);
         var listScore = document.createElement("p");
         var listScoreContent = document.createTextNode(storedScore);
         listScore.appendChild(listScoreContent)
         document.getElementById("scoreListDiv").appendChild(listScore);
-    }
+    
 
 }
 
@@ -113,6 +114,7 @@ button2.addEventListener("click", function(){
 })
 
 button3.addEventListener("click", function(){
+    console.log(q);
     if (button3.innerHTML == questions[q].rightAnswer){
         correctAnswer();
     }
@@ -158,4 +160,10 @@ submitBtn.addEventListener("click", function(event){
     showHighScores();
 })
 
-
+// added event listener to go back button so it will hide the high scores and show the welcome screen
+document.getElementById("goBack").addEventListener("click", function(){
+    score = 0;
+    document.getElementById("intials").value = "";
+    document.getElementById("highScoresDiv").style.display = "none";
+    document.getElementById("startingScreen").style.display = "block";
+})
