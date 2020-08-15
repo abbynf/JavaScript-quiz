@@ -6,6 +6,8 @@ var button3 = document.getElementById("opt3");
 var button4 = document.getElementById("opt4");
 var i = 0;
 var score = 0;
+var submitBtn = document.getElementById("submit");
+var userInitials;
 
 
 // function startTimer(){
@@ -128,3 +130,14 @@ button4.addEventListener("click", function(){
     }
     listQuestions(questions[i]);
 })
+
+submitBtn.addEventListener("click", function(event){
+    event.preventDefault();
+    userInitials = document.getElementById("intials").value;
+    function saveScores(initialsInput, scoreInput){
+        sessionStorage.setItem(initialsInput, scoreInput)
+    }
+    saveScores(userInitials, score);
+})
+
+
