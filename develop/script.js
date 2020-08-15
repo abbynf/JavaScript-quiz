@@ -7,7 +7,7 @@ function startTimer(){
 }
 
 function listQuestions(){
-
+    document.getElementById("quizQuestions").style.display = "block";
 
 }
 
