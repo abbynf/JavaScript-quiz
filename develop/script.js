@@ -53,8 +53,12 @@ startButton.addEventListener("click", function(){
     listQuestions(questions[i]);
 
     // Starts the timer in the upper right hand corner
-    startTimer();
+    // startTimer();
 })
+
+function yourScore(){
+    document.getElementById("submitScores").style.display = "block";
+}
 
 
 button1.addEventListener("click", function(){
@@ -67,6 +71,7 @@ button1.addEventListener("click", function(){
     i++;
     if (i==10){
         document.getElementById("quizQuestions").style.display = "none";
+        yourScore();
     }
     listQuestions(questions[i]);
 })
