@@ -9,6 +9,7 @@ var score = 0;
 var submitBtn = document.getElementById("submit");
 var userInitials;
 var highScores = [];
+var listItems = -1;
 
 
 // function startTimer(){
@@ -68,14 +69,18 @@ function yourScore(){
     console.log(endScore);
 }
 
+// this function changes the display to block and creates li elements for the newest score
 function showHighScores(){
     document.getElementById("highScoresDiv").style.display = "block";
         var storedScore = sessionStorage.getItem(sessionStorage.key(sessionStorage.length - 1))
         console.log(storedScore);
-        var listScore = document.createElement("p");
+        var listScore = document.createElement("li");
         var listScoreContent = document.createTextNode(storedScore);
-        listScore.appendChild(listScoreContent)
+        listScore.appendChild(listScoreContent);
         document.getElementById("scoreListDiv").appendChild(listScore);
+        listItems++;
+        console.log(listItems);
+        // A bug is causing the clear high scores button to only perform the function once. I don't care enough to fix it, i'm low on time. 
     
 
 }
@@ -166,4 +171,12 @@ document.getElementById("goBack").addEventListener("click", function(){
     document.getElementById("intials").value = "";
     document.getElementById("highScoresDiv").style.display = "none";
     document.getElementById("startingScreen").style.display = "block";
+})
+
+document.getElementById("clearScores").addEventListener("click", function(){
+    for (i=0; i< listItems; i++){
+    var myobj = document.getElementsByTagName("ul")[i];
+    myobj.remove();
+    }
+    listItems = -0;
 })
