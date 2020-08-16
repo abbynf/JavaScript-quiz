@@ -14,12 +14,12 @@
         <h1 id="title">JavaScript Timed Quiz</h1>
         <p id="description" class="description">Test your knowledge of JavaScript with this timed quiz! The timer will start at 75 seconds, but if you pick the wrong answer, you will lose ten seconds! Complete all the questions before the time runs out. </p>
         <p id="pressButton" class="pressButton">Press the start button to begin.</p>
-        <button id="start">Start</button>
+          <button id="start" class="startButton">Start</button>
     </div>
 
     <!-- This div is the questions -->
-    <div id="quizQuestions" style="display:none">
-        <h2 id="questionEl">you can</h2>
+    <div id="quizQuestions" style="display:none" class="quizQuestions">
+        <h2 id="questionEl"></h2>
         <div>
             <button id="opt1" class="option"></button>
         </div>
@@ -40,13 +40,15 @@
         </div>
     </div>
     <div id="timerDiv" style="display:none">
-        <p id="timerEl">timer here</p>
+        <p class="timer"> Timer:
+            <span id="timerEl"></span>
+        </p>
     </div>
 
 <!-- this div is where user can view their score and submit their iniials -->
-    <div id="submitScores" style="display:none">
+    <div id="submitScores" class="submitScores" style="display:none">
         <h2>All done!</h2>
-        <p id="scoreDisplay">Your score is</p>
+        <p id="scoreDisplay" class="scoreDisplay">Your score is</p>
         <form>
             <label for="initials">Please enter your initals here:</label><br>
             <input type="text" id="intials" name="intials" value = "">
@@ -55,7 +57,7 @@
     </div>
 
 <!-- this div shows the high scores -->
-    <div style="display:none" id="highScoresDiv">
+    <div style="display:none" id="highScoresDiv" class="highScoresDiv">
 
         <h2>High Scores</h2>
 

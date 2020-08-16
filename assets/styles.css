@@ -1,17 +1,122 @@
+
+
 body {
     font-family: 'Roboto', sans-serif;
+
 }
 
-/* The following styles are for the starting screen */
+p {
+    font-size: 25px;
+}
+
 h1 {
     font-size: 4rem;
     text-align: center;
 }
 
 .startingScreen {
-    margin: 20% 10% 10%;
+    margin-top: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .description {
-    margin-top: 20px;
+    margin-top: 40px;
+}
+
+.pressButton {
+    margin-top: 40px;
+}
+
+.startButton {
+    margin-top: 40px;
+    background-color: #0b448a;
+    padding: 15px 32px;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+}
+
+.startButton:hover {
+    background-color: #082f5e   
+}
+
+.startButton:active {
+    background-color: #062347
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.quizQuestions {
+    margin: 20%;
+}
+
+.option {
+    text-align: left;
+    font-size: 1rem;
+    margin: 2px;
+    background-color: #b0d3ff;
+    min-width: 100px;
+    box-sizing: border-box;
+    
+}
+
+.option:hover {
+    background-color: #54b0ff
+}
+
+.option:active {
+    background-color: #1375ec
+}
+
+button {
+    cursor: pointer;
+}
+
+.timer{
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.submitScores {
+    margin-top: 10%;
+    margin-left: 20%;
+    padding-left: 5px;
+}
+
+.scoreDisplay {
+    padding-bottom: 10px;
+}
+
+.highScoresDiv {
+    margin-top: 10%;
+    margin-left: 20%;
+    padding-left: 5px;
+}
+
+li {
+    margin: 10px;
+}
+
+/* media queries */
+@media only screen and (max-width: 500px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    .description {
+        font-size: 1.2rem;
+    }
+
+    .pressButton {
+        font-size: 1.2rem;
+    }
+
+    .startButton {
+        font-size: 1rem;
+    }
 }
