@@ -10,7 +10,7 @@ var submitBtn = document.getElementById("submit");
 var userInitials;
 var highScores = [];
 var listItems = -1;
-var secondsLeft = 70;
+var secondsLeft = 75;
 var timerVar;
 // var timerElP = document.getElementById("timerElP");
 
@@ -221,7 +221,7 @@ submitBtn.addEventListener("click", function(event){
 // added event listener to go back button so it will hide the high scores and show the welcome screen
 document.getElementById("goBack").addEventListener("click", function(){
     score = 0;
-    secondsLeft = 70;
+    secondsLeft = 75;
     console.log(secondsLeft);
     document.getElementById("intials").value = "";
     document.getElementById("highScoresDiv").style.display = "none";
