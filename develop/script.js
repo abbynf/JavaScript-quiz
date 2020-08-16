@@ -10,6 +10,9 @@ var submitBtn = document.getElementById("submit");
 var userInitials;
 var highScores = [];
 var listItems = -1;
+var secondsLeft = 70;
+var timerVar;
+// var timerElP = document.getElementById("timerElP");
 
 
 // function startTimer(){
@@ -52,6 +55,33 @@ function hideTimer(){
     document.getElementById("timerDiv").style.display = "none";
 }
 
+function ceaseTimer(){
+    clearInterval(timerVar);
+    document.getElementById("quizQuestions").style.display = "none";
+
+}
+
+
+function setTimer() { 
+    secondsLeft--;
+    document.getElementById("timerEl").innerHTML = secondsLeft;
+    if (secondsLeft <= 0){
+        ceaseTimer();
+        yourScore();
+        return;
+    }
+}
+
+function startTimer() {
+    timerVar = setInterval(setTimer, 1000)
+  }
+
+  function stopTimer(){
+    clearInterval(timerVar);
+    secondsLeft = secondsLeft-10;
+    startTimer();
+  }
+
 startButton.addEventListener("click", function(){
     // This function hides the welcome/starting screen
     document.getElementById("startingScreen").style.display = "none";
@@ -60,6 +90,8 @@ startButton.addEventListener("click", function(){
     document.getElementById("quizQuestions").style.display = "block";
 
     showTimer();
+
+    startTimer();
 
     q = 0;
 
@@ -74,6 +106,8 @@ startButton.addEventListener("click", function(){
 
 function yourScore(){
     document.getElementById("submitScores").style.display = "block";
+    score = score + secondsLeft;
+    console.log(score);
     var endScore = "Your score is " + score;
     document.getElementById("scoreDisplay").innerHTML = endScore
     console.log(endScore);
@@ -96,17 +130,20 @@ function showHighScores(){
 }
 
 
+
 button1.addEventListener("click", function(){
     if (button1.innerHTML === questions[q].rightAnswer){
         correctAnswer();
     }
     else {
         incorrectAnswer();
+        stopTimer();
     }
     q++;
     if (q==10){
         document.getElementById("quizQuestions").style.display = "none";
         yourScore();
+        ceaseTimer();
         return;
     }
     listQuestions(questions[q]);
@@ -118,11 +155,13 @@ button2.addEventListener("click", function(){
     }
     else {
         incorrectAnswer();
+        stopTimer();
     }
     q++;
     if (q==10){
         document.getElementById("quizQuestions").style.display = "none";
         yourScore();
+        ceaseTimer();
         return;
     }
     listQuestions(questions[q]);
@@ -134,11 +173,13 @@ button3.addEventListener("click", function(){
     }
     else {
         incorrectAnswer();
+        stopTimer();
     }
     q++;
     if (q==10){
         document.getElementById("quizQuestions").style.display = "none";
         yourScore();
+        ceaseTimer();
         return;
     }
     listQuestions(questions[q]);
@@ -151,11 +192,13 @@ button4.addEventListener("click", function(){
     }
     else {
         incorrectAnswer();
+        stopTimer();
     }
     q++;
     if (q==10){
         document.getElementById("quizQuestions").style.display = "none";
         yourScore();
+        ceaseTimer();
         return;
     }
     listQuestions(questions[q]);
@@ -178,6 +221,8 @@ submitBtn.addEventListener("click", function(event){
 // added event listener to go back button so it will hide the high scores and show the welcome screen
 document.getElementById("goBack").addEventListener("click", function(){
     score = 0;
+    secondsLeft = 70;
+    console.log(secondsLeft);
     document.getElementById("intials").value = "";
     document.getElementById("highScoresDiv").style.display = "none";
     document.getElementById("startingScreen").style.display = "block";
