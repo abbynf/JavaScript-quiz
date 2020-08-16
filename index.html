@@ -7,6 +7,7 @@
     <title>JavaScript Timed Quiz</title>
 </head>
 <body>
+    <!-- This div is the starting/welcoming screen -->
     <div id="startingScreen">
         <h1 id="title">JavaScript Timed Quiz</h1>
         <h3 id="description">Test your knowledge of JavaScript with this timed quiz! The timer will start at 75 seconds, but if you pick the wrong answer, you will lose ten seconds! Complete all the questions before the time runs out. </h3>
@@ -14,6 +15,7 @@
         <button id="start">Start</button>
     </div>
 
+    <!-- This div is the questions -->
     <div id="quizQuestions" style="display:none">
         <h2 id="questionEl">you can</h2>
         <div>
@@ -34,6 +36,9 @@
         <div>
             <p id="wrongAnswer" style="display:none">Wrong!</p>
         </div>
+    </div>
+    <div id="timerDiv" style="display:none">
+        <p id="timerEl">timer here</p>
     </div>
 
 <!-- this div is where user can view their score and submit their iniials -->

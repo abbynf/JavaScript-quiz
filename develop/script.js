@@ -44,12 +44,22 @@ function incorrectAnswer(){
     }, 1000);
 }
 
+function showTimer(){
+    document.getElementById("timerDiv").style.display = "block";
+}
+
+function hideTimer(){
+    document.getElementById("timerDiv").style.display = "none";
+}
+
 startButton.addEventListener("click", function(){
     // This function hides the welcome/starting screen
     document.getElementById("startingScreen").style.display = "none";
 
     //Starts the display of the quiz questions
     document.getElementById("quizQuestions").style.display = "block";
+
+    showTimer();
 
     q = 0;
 
@@ -119,7 +129,6 @@ button2.addEventListener("click", function(){
 })
 
 button3.addEventListener("click", function(){
-    console.log(q);
     if (button3.innerHTML == questions[q].rightAnswer){
         correctAnswer();
     }
@@ -154,6 +163,7 @@ button4.addEventListener("click", function(){
 
 submitBtn.addEventListener("click", function(event){
     event.preventDefault();
+    hideTimer();
     userInitials = document.getElementById("intials").value;
     newSave = userInitials + "  --  " + score;
     function saveScores(newKey, newSaveInput){
