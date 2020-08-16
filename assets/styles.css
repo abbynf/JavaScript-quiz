@@ -1,0 +1,17 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* The following styles are for the starting screen */
+h1 {
+    font-size: 4rem;
+    text-align: center;
+}
+
+.startingScreen {
+    margin: 20% 10% 10%;
+}
+
+.description {
+    margin-top: 20px;
+}
